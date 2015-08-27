@@ -10,7 +10,7 @@ let context = getGlobalContext();
  */
 export function setKey(newquay) {
   key = newquay;
-};
+}
 
 /**
  * Set the document, only used for passing
@@ -20,7 +20,7 @@ export function setKey(newquay) {
  */
 export function setDocument(newDocument) {
   injectedDoc = newDocument;
-};
+}
 
 /**
  * Get the document.  Allows us to inject a mock document
@@ -40,10 +40,10 @@ function getDocument() {
  * @returns {*}
  */
 function getGlobalContext() {
-  if (typeof window != 'undefined') {
+  if (typeof window !== 'undefined') {
     return window;
   }
-  if (typeof global != 'undefined') {
+  if (typeof global !== 'undefined') {
     return global;
   }
   return {};
@@ -64,7 +64,7 @@ function loadExternalScript(source) {
     element.src = source;
     firstScript.parentNode.insertBefore(element, firstScript);
   }, 1);
-};
+}
 
 /**
  * Initial load of KISSmetrics
@@ -94,7 +94,7 @@ function loadKissMetrics() {
 export function trackEvent(name, eventProps) {
   loadKissMetrics();
   context._kmq.push(['record', name, eventProps]);
-};
+}
 
 /**
  * Set a user property in KISSmetrics
@@ -108,4 +108,4 @@ export function setUserProperties(userProps) {
 
 export default {
   trackEvent, setKey
-}
+};

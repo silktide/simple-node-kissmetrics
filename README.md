@@ -1,2 +1,1 @@
-# react-kissmetrics
-Kissmetrics library for React.js
+# React kissmetrics library

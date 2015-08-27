@@ -1,7 +1,7 @@
 {
-  "name": "es6-library-starter",
-  "version": "2.1.0",
-  "description": "Author libraries in ES6 for Node.",
+  "name": "simple-node-kissmetrics",
+  "version": "0.1.0",
+  "description": "ES6 KISSmetrics library.",
   "main": "dist/library-dist.js",
   "scripts": {
     "test": "gulp",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/UWFosterIT/es6-library-starter.git"
+    "url": "https://github.com/silktide/simple-node-kissmetrics.git"
   },
   "keywords": [
     "boilerplate",
@@ -21,12 +21,12 @@
     "transpile",
     "babel"
   ],
-  "author": "Marc Miles",
+  "author": "Andrew Waite",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/UWFosterIT/es6-library-starter.git/issues"
+    "url": "https://github.com/silktide/simple-node-kissmetrics/issues"
   },
-  "homepage": "https://github.com/UWFosterIT/es6-library-starter",
+  "homepage": "https://github.com/silktide/simple-node-kissmetrics",
   "devDependencies": {
     "babel": "^5.8.21",
     "babel-eslint": "^4.0.10",

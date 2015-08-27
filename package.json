@@ -53,8 +53,6 @@
     "sinon-chai": "^2.7.0"
   },
   "to5BoilerplateOptions": {
-    "entryFileName": "index",
-    "exportVarName": "MyLibrary",
     "mochaGlobals": [
       "stub",
       "spy",

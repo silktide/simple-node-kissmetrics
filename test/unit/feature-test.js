@@ -1,4 +1,4 @@
-import KissMetrics from '../../src/index';
+import KissMetrics, { setDocument } from '../../src/index';
 
 let insertBeforeSpy, clock;
 
@@ -18,7 +18,7 @@ describe('A feature test', () => {
       ),
       "createElement": sinon.stub().returns({})
     };
-    KissMetrics.setDocument(mockDocument);
+    setDocument(mockDocument);
   });
 
   afterEach(function () {

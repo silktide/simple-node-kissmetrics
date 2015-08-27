@@ -7,7 +7,7 @@ describe('A feature test', () => {
     clock = sinon.useFakeTimers();
     insertBeforeSpy = sinon.spy();
     let mockDocument = {
-      "getElementsByTagName": sinon.stub().returns(
+      'getElementsByTagName': sinon.stub().returns(
         [
           {
             parentNode: {
@@ -16,7 +16,7 @@ describe('A feature test', () => {
           }
         ]
       ),
-      "createElement": sinon.stub().returns({})
+      'createElement': sinon.stub().returns({})
     };
     setDocument(mockDocument);
   });
@@ -29,15 +29,15 @@ describe('A feature test', () => {
 
   it('should call the setup method when tracking an event', () => {
     KissMetrics.setKey('an example key');
-    KissMetrics.trackEvent("blah");
+    KissMetrics.trackEvent('blah');
     clock.tick(2);
     expect(insertBeforeSpy.callCount).to.be.above(0);
   });
 
   it('should add an item to the queue on the global scope when tracking an event', () => {
     KissMetrics.setKey('an example key');
-    KissMetrics.trackEvent("blah");
-    expect(global._kmq).to.deep.equal([['record', "blah", undefined]]);
+    KissMetrics.trackEvent('blah');
+    expect(global._kmq).to.deep.equal([['record', 'blah', undefined]]);
   });
 
 });

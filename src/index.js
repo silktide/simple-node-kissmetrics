@@ -40,10 +40,10 @@ function getDocument() {
  * @returns {*}
  */
 function getGlobalContext() {
-  if (typeof window != "undefined") {
+  if (typeof window != 'undefined') {
     return window;
   }
-  if (typeof global != "undefined") {
+  if (typeof global != 'undefined') {
     return global;
   }
   return {};
@@ -75,7 +75,7 @@ function loadKissMetrics() {
   }
 
   if (!key) {
-    console.error("No key set for KISSmetrics, use setKey method to define it.");
+    console.error('No key set for KISSmetrics, use setKey method to define it.');
   }
 
   context._kmq = context._kmq || [];

@@ -1,7 +1,7 @@
 let loaded = false;
 let key = null;
 let injectedDoc = null;
-let window = getGlobalContext();
+let context = getGlobalContext();
 
 export function setKey(newquay) {
   key = newquay;
@@ -21,7 +21,7 @@ function getGlobalContext() {
 
 function loadExternalScript(source) {
   setTimeout(function () {
-    let documentObj = getDocument();
+    const documentObj = getDocument();
     const firstScript = documentObj.getElementsByTagName('script')[0];
     let element = documentObj.createElement('script');
     element.type = 'text/javascript';
@@ -40,8 +40,8 @@ function loadKissMetrics() {
     console.error("No key set for KISSmetrics, use setKey method to define it.");
   }
 
-  window._kmq = window._kmq || [];
-  window._kmk = window._kmk || key;
+  context._kmq = context._kmq || [];
+  context._kmk = context._kmk || key;
   loadExternalScript('//i.kissmetrics.com/i.js');
   loadExternalScript('//scripts.kissmetrics.com/' + key + '.2.js');
 
@@ -51,12 +51,12 @@ function loadKissMetrics() {
 
 export function trackEvent(name, eventProps) {
   loadKissMetrics();
-  window._kmq.push(['record', name, eventProps]);
+  context._kmq.push(['record', name, eventProps]);
 };
 
 export function setUserProperties(userProps) {
   loadKissMetrics();
-  window._kmq.push(['set', userProps]);
+  context._kmq.push(['set', userProps]);
 }
 
 export default {

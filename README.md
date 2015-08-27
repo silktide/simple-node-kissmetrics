@@ -1,1 +1,1 @@
-# React kissmetrics library
+# Simple node kissmetrics library

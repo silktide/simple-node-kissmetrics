@@ -76,6 +76,7 @@ function loadKissMetrics() {
 
   if (!key) {
     console.error('No key set for KISSmetrics, use setKey method to define it.');
+    return;
   }
 
   context._kmq = context._kmq || [];

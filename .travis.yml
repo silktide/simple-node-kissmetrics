@@ -1,7 +1,14 @@
 language: node_js
 node_js:
-  - "0.10"
-script: "gulp coverage"
+- '0.10'
+script: gulp coverage
+deploy:
+  provider: npm
+  email: andrewwaite@silktide.com
+  api_key:
+    secure: sef2rf/IfVRpMwidGMCLr78WL0tvhgddSezeMiKjNrvxM/kPVJmHFRbx3rMSCyv+kIdGtdHdKirPfgIQRX03zIv1tB3OKu/EnfA6Iuvv/JLCYde7Txfkp443dZ2XlVYVeG3uzA5tbZzUlJSpb21QjAVXCxy+Z05iFbZ9gUTHd6LEbeYtY6nkP5kxYnDjX8dKVDmxL1dR1tUkzVz5i3VlODAAopdL+qvrGWL1dqsr6kXpm3doEBSqWA2an/JNlviviGKAKbzXYBnTZkuonZfraRoV3GS5yDu5gOsLw/zfEaoH/lqbZtgquQQDNYPakj6E/F1PUkItZtn10g5nB94n9BgwMCWEFzTodcRjGZt4qzafEHbHyxkATd8N4kz3LFh0GOoXw8qd0TEJIwlFt+As04KRxON852Q+QoXbKxZPQBULYVkb5jiHfg46qUGEKneyGcc58F98sHIE7giNSumql0KXqjRSk123dYvs39Ce7tHavpFBT5tRbFl977tGJ5ZYG0JZXB7v7HxW8QSbacmezPgwl13jA2JMMJ9i7vduF7SYekSrH3oPBqZ1oNdsziyfbP35+GMSt6lITPTObZSy+oYDp62XNcyoL0rvlHDCbB/bLJUlF6P1Hrov0PgCgAR1io4T+f0G8y/FbXUSNCXanlk6m78+LCV4X0RkwvYpaEo=
+  on:
+    tags: true
 after_success:
-  - npm install -g codeclimate-test-reporter
-  - codeclimate < coverage/lcov.info
+- npm install -g codeclimate-test-reporter
+- codeclimate < coverage/lcov.info

@@ -40,4 +40,10 @@ describe('A feature test', () => {
     expect(global._kmq).to.deep.equal([['record', 'blah', undefined]]);
   });
 
+  it('should add an item to the queue on the global scope when setting user properties', () => {
+    KissMetrics.setKey('an example key');
+    KissMetrics.setUserProperties({'blah': 'blah'});
+    expect(global._kmq).to.deep.equal([['set', {'blah': 'blah'}]]);
+  });
+
 });

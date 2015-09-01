@@ -8,7 +8,7 @@ const del         = require('del');
 const path        = require('path');
 const mkdirp      = require('mkdirp');
 const isparta     = require('isparta');
-const esperanto   = require('esperanto');
+const rollup   = require('rollup');
 
 const manifest          = require('./package.json');
 const config            = manifest.to5BoilerplateOptions;
@@ -62,15 +62,15 @@ gulp.task('lint-test', function() {
 
 // Build two versions of the library
 gulp.task('build', ['lint-src', 'clean'], function(done) {
-  esperanto.bundle({
-    base: 'src',
-    entry: config.entryFileName
+  rollup.rollup({
+    entry: 'src/' + config.entryFileName + '.js'
   }).then(function(bundle) {
-    var res = bundle.toUmd({
+    var res = bundle.generate({
       sourceMap: true,
       sourceMapSource: config.entryFileName + '.js',
       sourceMapFile: exportFileName + '.js',
-      name: config.exportVarName
+      moduleName: config.exportVarName,
+      format: 'umd'
     });
 
     // Write the generated sourcemap

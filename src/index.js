@@ -107,5 +107,5 @@ export function setUserProperties(userProps) {
 }
 
 export default {
-  trackEvent, setKey
+  trackEvent, setKey, setUserProperties
 };

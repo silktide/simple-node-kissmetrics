@@ -13,13 +13,8 @@
     "url": "https://github.com/silktide/simple-node-kissmetrics.git"
   },
   "keywords": [
-    "boilerplate",
-    "es6",
-    "node",
-    "starter",
-    "kit",
-    "transpile",
-    "babel"
+    "kissmetrics",
+    "analytics"
   ],
   "author": "Andrew Waite",
   "license": "MIT",
@@ -54,7 +49,7 @@
   },
   "to5BoilerplateOptions": {
     "entryFileName": "index",
-    "exportVarName": "MyLibrary",
+    "exportVarName": "kissmetrics",
     "mochaGlobals": [
       "stub",
       "spy",

@@ -1,8 +1,7 @@
 let loaded = false;
 let key = null;
-let injectedScriptLoadFunction = null;
+let injectedDoc = null;
 let context = getGlobalContext();
-import scriptLoad from 'script-load';
 
 /**
  * Set the KISSmetrics API key
@@ -14,21 +13,23 @@ export function setKey(newquay) {
 }
 
 /**
- * Set the script loading function, only
- * used for passing in a mock for testing.
+ * Set the document, only used for passing
+ * in a mock for testing.
  *
- * @param fn
+ * @param newDocument
  */
-export function setScriptLoadFunction(fn) {
-  injectedScriptLoadFunction = fn;
+export function setDocument(newDocument) {
+  injectedDoc = newDocument;
 }
 
-function loadExternalScript(url) {
-  if (typeof injectedScriptLoadFunction === 'function') {
-    injectedScriptLoadFunction(url);
-    return;
-  }
-  scriptLoad(url);
+/**
+ * Get the document.  Allows us to inject a mock document
+ * for testing outside a browser env.
+ *
+ * @returns {*|HTMLDocument}
+ */
+function getDocument() {
+  return injectedDoc || document;
 }
 
 /**
@@ -46,6 +47,23 @@ function getGlobalContext() {
     return global;
   }
   return {};
+}
+
+/**
+ * Load KISSmetrics scripts from their site.
+ *
+ * @param source
+ */
+function loadExternalScript(source) {
+  setTimeout(function () {
+    const documentObj = getDocument();
+    const firstScript = documentObj.getElementsByTagName('script')[0];
+    let element = documentObj.createElement('script');
+    element.type = 'text/javascript';
+    element.async = true;
+    element.src = source;
+    firstScript.parentNode.insertBefore(element, firstScript);
+  }, 1);
 }
 
 /**

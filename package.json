@@ -60,8 +60,5 @@
       "spy",
       "expect"
     ]
-  },
-  "dependencies": {
-    "script-load": "^0.1.0"
   }
 }

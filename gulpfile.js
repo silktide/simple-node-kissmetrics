@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+
 var $ = require('gulp-load-plugins')({
   replaceString: /^gulp(-|\.)([0-9]+)?/
 });
@@ -62,9 +63,15 @@ gulp.task('lint-test', function() {
 
 // Build two versions of the library
 gulp.task('build', ['lint-src', 'clean'], function(done) {
+
+  console.log("Rolling up");
+
   rollup.rollup({
     entry: 'src/' + config.entryFileName + '.js'
   }).then(function(bundle) {
+
+    console.log("Rolling up then");
+
     var res = bundle.generate({
       sourceMap: true,
       sourceMapSource: config.entryFileName + '.js',

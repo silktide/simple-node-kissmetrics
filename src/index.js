@@ -69,7 +69,7 @@ function loadExternalScript(source) {
 /**
  * Initial load of KISSmetrics
  */
-function loadKissMetrics() {
+export function setup() {
   if (loaded) {
     return;
   }
@@ -93,7 +93,7 @@ function loadKissMetrics() {
  * @param eventProps
  */
 export function trackEvent(name, eventProps) {
-  loadKissMetrics();
+  setup();
   context._kmq.push(['record', name, eventProps]);
 }
 
@@ -103,10 +103,10 @@ export function trackEvent(name, eventProps) {
  * @param userProps
  */
 export function setUserProperties(userProps) {
-  loadKissMetrics();
+  setup();
   context._kmq.push(['set', userProps]);
 }
 
 export default {
-  trackEvent, setKey, setUserProperties
+  trackEvent, setKey, setUserProperties, setup
 };

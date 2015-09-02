@@ -1,24 +1,12 @@
-import KissMetrics, { setDocument } from '../../src/index';
+import KissMetrics, { setScriptLoadFunction } from '../../src/index';
 
-let insertBeforeSpy, clock;
+let scriptLoadSpy, clock;
 
 describe('A feature test', () => {
   beforeEach(() => {
     clock = sinon.useFakeTimers();
-    insertBeforeSpy = sinon.spy();
-    let mockDocument = {
-      'getElementsByTagName': sinon.stub().returns(
-        [
-          {
-            parentNode: {
-              insertBefore: insertBeforeSpy
-            }
-          }
-        ]
-      ),
-      'createElement': sinon.stub().returns({})
-    };
-    setDocument(mockDocument);
+    scriptLoadSpy = sinon.spy();
+    setScriptLoadFunction(scriptLoadSpy);
   });
 
   afterEach(function () {
@@ -31,7 +19,7 @@ describe('A feature test', () => {
     KissMetrics.setKey('an example key');
     KissMetrics.trackEvent('blah');
     clock.tick(2);
-    expect(insertBeforeSpy.callCount).to.be.above(0);
+    expect(scriptLoadSpy.callCount).to.be.above(0);
   });
 
   it('should add an item to the queue on the global scope when tracking an event', () => {

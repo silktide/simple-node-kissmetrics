@@ -24,7 +24,7 @@ export function setScriptLoadFunction(fn) {
 }
 
 function loadExternalScript(url) {
-  if (typeof injectedScriptLoadFunction === "function") {
+  if (typeof injectedScriptLoadFunction === 'function') {
     injectedScriptLoadFunction(url);
     return;
   }

@@ -1,7 +1,7 @@
 language: node_js
 addons:
   code_climate:
-    repo_token: 053ead22e41c48c28371e4f2b1c5f5e6d437a7a2bf0b68b3e4d0d8138d892590
+    repo_token: fa8e1a586c9cf0430988c7eabd190611dd1f6ec0253e98e644a05aa4ee77dbf6
 node_js:
 - '0.10'
 script: gulp coverage

@@ -8,8 +8,8 @@ A simple wrapper for KISSmetrics client library written in ES6.
 
 * Loads KISSmetrics tracking JavaScript library.
 * Exposes a convenient interface for:
-    - Setting your KISSmetrics API key
-    - Setting user properties
+    - Setting your KISSmetrics API key.
+    - Setting user properties.
     - Tracking events.
 
 ## Usage example

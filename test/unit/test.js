@@ -2,7 +2,7 @@ import KissMetrics, { setDocument } from '../../src/index';
 
 let insertBeforeSpy, clock;
 
-describe('A feature test', () => {
+describe('Kissmetrics tests', () => {
   beforeEach(() => {
     clock = sinon.useFakeTimers();
     insertBeforeSpy = sinon.spy();

@@ -34,6 +34,12 @@ describe('Kissmetrics tests', () => {
     expect(insertBeforeSpy.callCount).to.be.above(0);
   });
 
+  it('should add an item to the queue on the global scope when identifying', () => {
+    KissMetrics.setKey('an example key');
+    KissMetrics.identify('bob');
+    expect(global._kmq).to.deep.equal([['identify', 'bob']]);
+  });
+
   it('should add an item to the queue on the global scope when tracking an event', () => {
     KissMetrics.setKey('an example key');
     KissMetrics.trackEvent('blah');

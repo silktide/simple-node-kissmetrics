@@ -107,6 +107,16 @@ export function setUserProperties(userProps) {
   context._kmq.push(['set', userProps]);
 }
 
+/**
+ * Set an identity in KISSmetrics
+ *
+ * @param userProps
+ */
+export function identify(identity) {
+  setup();
+  context._kmq.push(['identify', identity]);
+}
+
 export default {
-  trackEvent, setKey, setUserProperties, setup
+  trackEvent, setKey, setUserProperties, setup, identify
 };

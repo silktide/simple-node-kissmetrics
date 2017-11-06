@@ -3,4 +3,5 @@ app: simple-node-kissmetrics
 type: library
 source: open
 language: js
+protected: false
 ...

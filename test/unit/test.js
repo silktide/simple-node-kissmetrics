@@ -46,6 +46,12 @@ describe('Kissmetrics tests', () => {
     expect(global._kmq).to.deep.equal([['record', 'blah', undefined]]);
   });
 
+  it('should add an item to the queue on the global scope when tracking a custom event', () => {
+    KissMetrics.setKey('an example key');
+    KissMetrics.customEvent(['trackClickOnOutboundLink', 'link1', 'Visited Other Site']);
+    expect(global._kmq).to.deep.equal([['trackClickOnOutboundLink', 'link1', 'Visited Other Site']]);
+  });
+
   it('should add an item to the queue on the global scope when setting user properties', () => {
     KissMetrics.setKey('an example key');
     KissMetrics.setUserProperties({'blah': 'blah'});
